@@ -29,10 +29,10 @@ if response_version != veri.splitlines():
     with open('alfabe.py', 'w', encoding='utf-8') as f:
         f.writelines([line + '\n' for line in response_version])
         f.close()
-
+    print(Fore.YELLOW)
     for i in tqdm(range(101), desc='Güncelleniyor', ascii=False, ncols=75):
         time.sleep(0.01)
-    
+    print(Fore.WHITE)
     print_slow(Fore.GREEN + 'Güncelleme Tamamlandı')
     print_slow(Fore.CYAN + '\nSistem Yeniden Başlatılıyor...')
     os.system('python alfabe.py')
