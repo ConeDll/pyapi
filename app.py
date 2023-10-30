@@ -13,7 +13,7 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.1)
+        time.sleep(0.03)
 
 # Güncelleme bayrağı
 update_done = False
