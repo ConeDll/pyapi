@@ -34,7 +34,7 @@ if response_version != veri.splitlines():
         time.sleep(0.01)
     
     print_slow(Fore.GREEN + 'Güncelleme Tamamlandı')
-    print_slow(Fore.GREEN + 'Sistem Yeniden Başlatılıyor...')
+    print_slow(Fore.CYAN + '\nSistem Yeniden Başlatılıyor...')
     os.system('python alfabe.py')
     
     # Güncelleme tamamlandı, bayrağı ayarlayın
