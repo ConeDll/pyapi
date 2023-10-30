@@ -17,18 +17,21 @@ def print_slow(str):
         time.sleep(.1)
 
 
-
+ 
+ 
+ 
 
 
 version_link = 'https://raw.githubusercontent.com/ConeDll/pyapi/main/app.py'
 r = requests.get(version_link)
 response_version = r.content  # '()' işaretini kaldırın
 
-with open('alfabe.py', 'r') as g:
+with open('alfabe.py', 'r', encoding='utf-8') as g:
     veri = g.read()
 
+
 if float(veri) < float(response_version):
-    with open('alfabe.py', 'w') as f:
+    with open('alfabe.py', 'w',encoding='utf-8') as f:
         f.write(str(response_version))
         f.close()
 
