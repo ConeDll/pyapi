@@ -5,7 +5,9 @@ import os
 import pyperclip
 import requests
 from tqdm import tqdm
-import time
+import sys,time,random
+
+
 
 import os
 import subprocess
@@ -13,8 +15,9 @@ colorama.init()
 
 def print_slow(str):
     for letter in str:
-        print(letter)
-        time.sleep(.1)
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(0.1)
 
 
  
@@ -34,7 +37,7 @@ with open('alfabe.py', 'r', encoding='utf-8') as g:
 
 if veri != response_version:
     with open('alfabe.py', 'w',encoding='utf-8') as f:
-        f.write(str(response_version))
+        f.writelines(str(response_version))
         f.close()
 
     for i in tqdm(range(101), desc='Güncelleniyor', ascii=False, ncols=75):
