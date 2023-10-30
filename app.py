@@ -19,22 +19,25 @@ def print_slow(str):
 
 version_link = 'https://raw.githubusercontent.com/ConeDll/pyapi/main/app.py'
 r = requests.get(version_link)
-response_version = r.text  # response_version'i bir dize olarak alın
+response_version = r.text.splitlines()  # İndirilen veriyi satır satır ayırın
 
 with open('alfabe.py', 'r', encoding='utf-8') as g:
     veri = g.read()
 
-if veri != response_version:
+if response_version != veri.splitlines():  # Satır satır karşılaştırın
     with open('alfabe.py', 'w', encoding='utf-8') as f:
-        f.write(response_version)  # response_version'ı tümünü yazın
+        f.writelines([line + '\n' for line in response_version])  # Her satırı ayrı ayrı yazın
         f.close()
 
     for i in tqdm(range(101), desc='Güncelleniyor', ascii=False, ncols=75):
         time.sleep(0.01)
     print_slow(Fore.GREEN + 'Güncelleme Tamamlandı')
     print_slow(Fore.GREEN + 'Sistem Yeniden Başlatılıyor...')
-    os.system('python alfabe.py')  # 'os.system' -> 'os.system'
+    os.system('python alfabe.py')
     exit()
+
+# Alfabe ve şifreleme fonksiyonları burada devam eder...
+
 alfabe = {
     'a': '3K',
     'b': '1Mü',
