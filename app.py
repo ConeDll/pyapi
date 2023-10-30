@@ -5,9 +5,7 @@ import os
 import pyperclip
 import requests
 from tqdm import tqdm
-import sys,time,random
-
-
+import sys, time, random
 
 import os
 import subprocess
@@ -19,32 +17,23 @@ def print_slow(str):
         sys.stdout.flush()
         time.sleep(0.1)
 
-
- 
- 
-
- 
-
-
-
 version_link = 'https://raw.githubusercontent.com/ConeDll/pyapi/main/app.py'
 r = requests.get(version_link)
-response_version = r.content  # '()' işaretini kaldırın
+response_version = r.text  # response_version'i bir dize olarak alın
 
 with open('alfabe.py', 'r', encoding='utf-8') as g:
     veri = g.read()
 
-
 if veri != response_version:
-    with open('alfabe.py', 'w',encoding='utf-8') as f:
-        f.writelines(str(response_version))
+    with open('alfabe.py', 'w', encoding='utf-8') as f:
+        f.write(response_version)  # response_version'ı tümünü yazın
         f.close()
 
     for i in tqdm(range(101), desc='Güncelleniyor', ascii=False, ncols=75):
         time.sleep(0.01)
     print_slow(Fore.GREEN + 'Güncelleme Tamamlandı')
     print_slow(Fore.GREEN + 'Sistem Yeniden Başlatılıyor...')
-    os.system('python alfabe.py')  # 'os.systyem' -> 'os.system'
+    os.system('python alfabe.py')  # 'os.system' -> 'os.system'
     exit()
 alfabe = {
     'a': '3K',
