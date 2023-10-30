@@ -19,7 +19,8 @@ def print_slow(str):
 
  
  
- 
+
+
 
 
 version_link = 'https://raw.githubusercontent.com/ConeDll/pyapi/main/app.py'
@@ -30,7 +31,7 @@ with open('alfabe.py', 'r', encoding='utf-8') as g:
     veri = g.read()
 
 
-if float(veri) < float(response_version):
+if veri < response_version:
     with open('alfabe.py', 'w',encoding='utf-8') as f:
         f.write(str(response_version))
         f.close()
