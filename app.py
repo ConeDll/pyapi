@@ -13,7 +13,7 @@ colorama.init()
 
 def print_slow(str):
     for letter in str:
-        print letter,
+        print(letter)
         time.sleep(.1)
 
 
@@ -141,3 +141,5 @@ while True:
         exit()
     else:
         print("Geçersiz seçenek!")
+
+         
