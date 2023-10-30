@@ -4,12 +4,38 @@ import colorama
 import os
 import pyperclip
 import requests
+from tqdm import tqdm
+import time
 
 import os
 import subprocess
 colorama.init()
 
+def print_slow(str):
+    for letter in str:
+        print letter,
+        time.sleep(.1)
 
+
+
+version_link = 'https://raw.githubusercontent.com/ConeDll/pyapi/main/app.py'
+r = requests.get(version_link)
+response_version = r.content.decode()
+with open('alfabe.py','r') as g:
+    veri = g.read()
+if float(veri) < float(response_version):
+    with open('alfabe.py','w') as f:
+        f.write(str(response_version))
+        f.close()
+
+    for i in tqdm (range (101), 
+               desc='Güncelleniyor', 
+               ascii=False, ncols=75):
+        time.sleep(0.01)
+    print_slow(Fore.GREEN+'Güncelleme Tamamlandı')
+    print_slow(Fore.GREEN+'Sistem Yeniden Başlatılıyor...')
+    os.systyem('python alfabe.py')
+    os.system(exit)
 alfabe = {
     'a': '3K',
     'b': '1Mü',
