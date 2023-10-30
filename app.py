@@ -19,24 +19,25 @@ def print_slow(str):
 
 
 
+
 version_link = 'https://raw.githubusercontent.com/ConeDll/pyapi/main/app.py'
 r = requests.get(version_link)
-response_version = r.content()
-with open('alfabe.py','r') as g:
+response_version = r.content  # '()' işaretini kaldırın
+
+with open('alfabe.py', 'r') as g:
     veri = g.read()
+
 if float(veri) < float(response_version):
-    with open('alfabe.py','w') as f:
+    with open('alfabe.py', 'w') as f:
         f.write(str(response_version))
         f.close()
 
-    for i in tqdm (range (101), 
-               desc='Güncelleniyor', 
-               ascii=False, ncols=75):
+    for i in tqdm(range(101), desc='Güncelleniyor', ascii=False, ncols=75):
         time.sleep(0.01)
-    print_slow(Fore.GREEN+'Güncelleme Tamamlandı')
-    print_slow(Fore.GREEN+'Sistem Yeniden Başlatılıyor...')
-    os.systyem('python alfabe.py')
-    os.system(exit)
+    print_slow(Fore.GREEN + 'Güncelleme Tamamlandı')
+    print_slow(Fore.GREEN + 'Sistem Yeniden Başlatılıyor...')
+    os.system('python alfabe.py')  # 'os.systyem' -> 'os.system'
+    exit()
 alfabe = {
     'a': '3K',
     'b': '1Mü',
