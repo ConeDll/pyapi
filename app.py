@@ -6,7 +6,7 @@ import pyperclip
 import requests
 from tqdm import tqdm
 import sys, time, random
-
+ 
 colorama.init()
 
 def print_slow(str):
